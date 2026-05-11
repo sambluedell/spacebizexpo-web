@@ -6,3 +6,4 @@ data/*
 filebrowser.db
 .DS_Store
 *.log
+.vercel

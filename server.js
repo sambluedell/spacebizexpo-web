@@ -14,7 +14,10 @@ const UPLOAD_DIR = isVercel ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 // 中间件
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
+
+// 静态文件
+const ROOT_DIR = isVercel ? process.cwd() : __dirname;
+app.use(express.static(ROOT_DIR));
 
 // 请求日志
 app.use((req, res, next) => {
@@ -205,6 +208,20 @@ app.post('/api/login', (req, res) => {
     res.json({ success: true, token: 'admin-token' });
   } else {
     res.status(401).json({ success: false, message: '用户名或密码错误' });
+  }
+});
+
+// ===== SPA 回退：非 API 路由都返回 index.html =====
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
+    res.status(404).json({ error: 'Not found' });
+    return;
+  }
+  const indexPath = path.join(ROOT_DIR, 'index.html');
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath);
+  } else {
+    res.status(500).send('index.html not found');
   }
 });
 
