@@ -3,6 +3,7 @@ uploads/*
 !uploads/.gitkeep
 data/*
 !data/.gitkeep
+!data/*.json
 filebrowser.db
 .DS_Store
 *.log

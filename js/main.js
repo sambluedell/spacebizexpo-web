@@ -41,6 +41,44 @@
   setInterval(tick, 1000);
 })();
 
+// --- Hero carousel ---
+(function initCarousel() {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('#carouselDots .dot');
+  if (!slides.length || !dots.length) return;
+  let current = 0;
+  let timer;
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = idx;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() {
+    goTo((current + 1) % slides.length);
+  }
+  function start() { timer = setInterval(next, 5000); }
+  function stop() { clearInterval(timer); }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      if (i === current) return;
+      stop(); goTo(i); start();
+    });
+  });
+
+  const hero = document.getElementById('hero');
+  if (hero) {
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+  }
+
+  start();
+})();
+
 // --- Header scroll shadow ---
 (function initHeaderScroll() {
   const header = document.getElementById('header');
@@ -179,7 +217,91 @@
   });
 })();
 
-// --- Load exhibitors from API ---
+// --- Detail Modal ---
+(function initDetailModal() {
+  // Create modal element
+  const modal = document.createElement('div');
+  modal.className = 'detail-modal';
+  modal.innerHTML = `
+    <div class="detail-modal-overlay"></div>
+    <div class="detail-modal-content">
+      <button class="detail-modal-close">&times;</button>
+      <div class="detail-modal-logo">
+        <img src="" alt="">
+      </div>
+      <h2 class="detail-modal-name"></h2>
+      <div class="detail-modal-url-wrap">
+        <a class="detail-modal-url" href="" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="detail-modal-desc"></div>
+    </div>`;
+  document.body.appendChild(modal);
+
+  const overlay = modal.querySelector('.detail-modal-overlay');
+  const content = modal.querySelector('.detail-modal-content');
+  const closeBtn = modal.querySelector('.detail-modal-close');
+  const logoImg = modal.querySelector('.detail-modal-logo img');
+  const nameEl = modal.querySelector('.detail-modal-name');
+  const urlEl = modal.querySelector('.detail-modal-url');
+  const urlWrap = modal.querySelector('.detail-modal-url-wrap');
+  const descEl = modal.querySelector('.detail-modal-desc');
+
+  function openModal(item) {
+    logoImg.parentElement.style.display = '';
+    const dateBadge = urlWrap.querySelector('.news-date-badge');
+    if (dateBadge) dateBadge.style.display = 'none';
+    logoImg.src = item.logo;
+    logoImg.alt = item.name;
+    nameEl.textContent = item.name;
+    if (item.url) {
+      urlEl.href = item.url;
+      urlEl.textContent = item.urlText || item.url;
+      urlEl.style.display = 'inline';
+    } else {
+      urlEl.style.display = 'none';
+    }
+    descEl.textContent = item.description || '暂无简介';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  window.openDetailModal = openModal;
+
+  // News detail modal (reuses the same modal element)
+  window.openNewsModal = function(item) {
+    const logo = modal.querySelector('.detail-modal-logo');
+    logo.style.display = 'none';
+    nameEl.textContent = item.title;
+    urlEl.style.display = 'none';
+    let dateBadge = urlWrap.querySelector('.news-date-badge');
+    if (!dateBadge) {
+      dateBadge = document.createElement('div');
+      dateBadge.className = 'news-date-badge';
+      dateBadge.style.cssText = 'color:var(--gold);font-size:.85rem;font-weight:600;margin-bottom:4px;';
+      urlWrap.prepend(dateBadge);
+    }
+    dateBadge.textContent = '📅 ' + (item.date || '');
+    dateBadge.style.display = '';
+    descEl.innerHTML = item.content
+      ? item.content.split('\n').filter(l => l.trim()).map(p => '<p style="margin-bottom:14px;line-height:1.9;">' + p + '</p>').join('')
+      : '暂无内容';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+})();
+
+// --- Load exhibitors from JSON API ---
 (function loadExhibitors() {
   const grid = document.getElementById('exh-grid');
   if (!grid) return;
@@ -188,19 +310,15 @@
     .then(items => {
       if (items.length === 0) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">暂无数据</p>'; return; }
       grid.innerHTML = items.map(i => {
-        if (i.logo) {
-          return `<a href="${i.url || '#'}" target="${i.url ? '_blank' : '_self'}" class="exh-item${i.isVip ? ' vip' : ''}" style="flex-direction:column;gap:6px;padding:14px;">
-            <img src="${i.logo}" alt="${i.name}" style="max-height:36px;max-width:80%;object-fit:contain;">
-            <span style="font-size:.75rem;font-weight:400;">${i.name}</span>
-          </a>`;
-        }
-        return `<a href="${i.url || '#'}" target="${i.url ? '_blank' : '_self'}" class="exh-item${i.isVip ? ' vip' : ''}">${i.name}</a>`;
+        return `<a href="javascript:void(0)" onclick="openDetailModal(${JSON.stringify(i).replace(/"/g, '&quot;')})" class="exh-item" style="padding:16px;">
+          <img src="${i.logo}" alt="${i.name}" style="max-height:44px;max-width:85%;object-fit:contain;" loading="lazy">
+        </a>`;
       }).join('');
     })
     .catch(() => { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">加载失败</p>'; });
 })();
 
-// --- Load media from API ---
+// --- Load media from JSON API ---
 (function loadMedia() {
   const grid = document.getElementById('media-grid');
   if (!grid) return;
@@ -209,13 +327,9 @@
     .then(items => {
       if (items.length === 0) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">暂无数据</p>'; return; }
       grid.innerHTML = items.map(i => {
-        const el = document.createElement('div');
-        if (i.logo) {
-          return `<a href="${i.url || '#'}" target="${i.url ? '_blank' : '_self'}" class="media-item" style="display:flex;align-items:center;justify-content:center;padding:16px;">
-            <img src="${i.logo}" alt="${i.name}" style="max-height:32px;max-width:80%;object-fit:contain;">
-          </a>`;
-        }
-        return `<div class="media-item">${i.name}</div>`;
+        return `<a href="javascript:void(0)" onclick="openDetailModal(${JSON.stringify(i).replace(/"/g, '&quot;')})" class="media-item" style="display:flex;align-items:center;justify-content:center;padding:14px;">
+          <img src="${i.logo}" alt="${i.name}" style="max-height:36px;max-width:85%;object-fit:contain;" loading="lazy">
+        </a>`;
       }).join('');
     })
     .catch(() => { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">加载失败</p>'; });
@@ -231,7 +345,7 @@
       if (items.length === 0) { grid.innerHTML = '<p style="text-align:center;color:#aaa;">暂无新闻</p>'; return; }
       const featured = items[0];
       const rest = items.slice(1);
-      let html = '<div class="news-featured">';
+      let html = '<div class="news-featured" data-id="' + featured.id + '">';
       html += '<div class="img-box">📰</div>';
       html += '<div class="content">';
       const d = featured.date ? featured.date.split('-').slice(0,2).join('年') + '月' : '';
@@ -244,10 +358,20 @@
         const parts = (item.date || '').split('-');
         const day = parts[2] || '';
         const ym = parts.slice(0,2).join('-') || '';
-        html += `<div class="news-item"><div class="d"><b>${day}</b><span>${ym}</span></div><div class="t"><h5>${item.title}</h5><p>${item.summary || ''}</p></div></div>`;
+        html += `<div class="news-item" data-id="${item.id}"><div class="d"><b>${day}</b><span>${ym}</span></div><div class="t"><h5>${item.title}</h5><p>${item.summary || ''}</p></div></div>`;
       });
       html += '</div>';
       grid.innerHTML = html;
+
+      // Click to open news detail
+      grid.querySelectorAll('.news-featured, .news-item').forEach(el => {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function() {
+          const id = parseInt(this.dataset.id);
+          const item = items.find(i => i.id === id);
+          if (item) window.openNewsModal(item);
+        });
+      });
     })
     .catch(() => { grid.innerHTML = '<p style="text-align:center;color:#aaa;">加载失败</p>'; });
 })();

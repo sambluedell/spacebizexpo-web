@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "name": "创业邦（CYZONE）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_31_1357584873.png",
+    "url": "https://www.cyzone.cn",
+    "description": "成立于2007年的创业服务平台，旗下涵盖创业媒体、投融资服务、孵化投资及创新产品演示等业务。为创业者提供从资讯获取到资本对接的全链条服务，是国内创投领域具有影响力的综合性服务平台。"
+  },
+  {
+    "id": 2,
+    "name": "热点科技（ITHEAT）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_32_1357386873.jpg",
+    "url": "https://www.itheat.com",
+    "description": "科技资讯门户，聚焦IT、数码、通信等领域新闻与产品评测。为科技爱好者和消费者提供前沿科技动态、深度产品测评及行业趋势分析，是连接品牌与用户的科技内容平台。"
+  },
+  {
+    "id": 3,
+    "name": "商业航天产业研究（CAIRI）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_33_1357198873.jpg",
+    "url": "https://www.casiri.cn",
+    "description": "专注商业航天产业研究的专业机构，提供行业分析、政策解读与战略咨询服务。致力于推动中国商业航天产业化发展，为航天企业及投资机构提供深度市场洞察与决策支持。"
+  },
+  {
+    "id": 4,
+    "name": "容商天下",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_34_1357055073.png",
+    "url": "https://www.rongshangtx.com",
+    "description": "工业互联网平台服务商，为企业提供数字化转型与智能制造解决方案。依托物联网、大数据等技术，助力制造业企业实现设备互联、生产优化及供应链协同，推动产业数字化升级。"
+  },
+  {
+    "id": 5,
+    "name": "航旅圈（AIRWEFLY）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_35_1356513273.png",
+    "url": "https://www.airwefly.com",
+    "description": "航空旅游行业专业媒体，关注民航动态、机场资讯与商旅服务。提供航线分析、机队数据、航空市场研究等深度内容，是航空从业者及商旅人士获取行业信息的重要平台。"
+  },
+  {
+    "id": 6,
+    "name": "百分零部件网（100LBJ）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_36_1356391473.png",
+    "url": "https://www.100lbj.com",
+    "description": "工业零部件B2B平台，提供采购、供应链管理及行业信息服务。汇聚海量零部件供应商资源，为制造业企业提供一站式采购解决方案，降低采购成本，提升供应链效率。"
+  },
+  {
+    "id": 7,
+    "name": "华夏能源网",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_37_1356278973.png",
+    "url": "https://www.hxny.com",
+    "description": "能源行业专业媒体，报道电力、新能源、油气及储能领域动态。提供能源政策解读、市场分析、技术趋势等内容，是能源从业者获取行业资讯、洞察市场走向的重要参考平台。"
+  },
+  {
+    "id": 8,
+    "name": "114IC电子元件交易网",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_38_1356124673.png",
+    "url": "https://www.114ic.com",
+    "description": "创立于2002年的电子元器件B2B交易平台，提供IC芯片、集成电路、电容电阻等元件的采购与现货服务。拥有超6500万条库存信息，日均点击量超250万，是电子制造企业的核心采购渠道。"
+  },
+  {
+    "id": 9,
+    "name": "91金属网",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_39_1355586373.png",
+    "url": "https://www.91jinshu.com",
+    "description": "有色金属行业信息平台，提供铜、铝、锌等金属的实时价格行情、市场分析及供应链服务。连接金属生产商、贸易商与终端用户，助力企业把握市场动态，优化采购与销售决策。"
+  },
+  {
+    "id": 10,
+    "name": "中项网（CCPC）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_40_1355288773.png",
+    "url": "https://www.ccpc360.com",
+    "description": "工程项目信息服务平台，覆盖招投标、拟在建项目跟踪与商机挖掘。为工程企业提供全国范围内的项目信息、招标公告及市场分析，助力企业精准把握工程市场机遇，拓展业务渠道。"
+  },
+  {
+    "id": 11,
+    "name": "标准件网（BZJW）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_41_1355127773.png",
+    "url": "https://www.bzjw.com",
+    "description": "紧固件及标准件行业B2B平台，提供螺栓、螺母、螺钉等产品采购信息。致力于帮助中国标准件企业加速发展、走向世界，是紧固件采购商与供应商汇聚的专业行业媒体与交易平台。"
+  },
+  {
+    "id": 12,
+    "name": "TechWeb",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_42_1354598673.png",
+    "url": "https://www.techweb.com.cn",
+    "description": "成立于2005年的互联网消费互动媒体，专注于互联网产品、智能设备及互联网服务资讯。以网站、微博、微信、APP等全媒体形态呈现，日流量曾达千万级，是科技领域具有影响力的内容平台。"
+  },
+  {
+    "id": 13,
+    "name": "商业航天发展",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_43_1354389373.png",
+    "url": "https://www.bsa.com.cn",
+    "description": "商业航天产业资讯平台，聚焦航天商业化、产业化发展动态。提供商业航天政策解读、技术进展、企业动态及市场分析，推动中国商业航天生态建设，连接产业链上下游资源。"
+  },
+  {
+    "id": 14,
+    "name": "重工机械网（ZGONG）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_44_1354255073.png",
+    "url": "https://www.zgong.com",
+    "description": "重型机械行业B2B平台，提供矿山、起重、工程机械等设备的采购与资讯服务。汇聚行业供应商与采购商资源，提供产品信息、价格参考及市场动态，助力重型机械企业拓展业务。"
+  },
+  {
+    "id": 15,
+    "name": "维库仪器仪表（HI1718）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_45_1354053673.png",
+    "url": "https://www.hi1718.com",
+    "description": "仪器仪表行业B2B平台，提供产品选型、实时报价及采购服务。涵盖分析仪、流量计、压力表等各类仪器仪表产品，为工业企业、科研机构提供全方位的价格参考与采购支持。"
+  },
+  {
+    "id": 16,
+    "name": "仪器仪表交易网（TESTMART）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_46_1353058973.png",
+    "url": "https://www.testmart.cn",
+    "description": "成立于2003年的仪器仪表行业领军企业，提供分析仪、化工设备、电子测量仪器等产品信息。依托权威丰富的信息优势与便捷完善的服务功能，已成为仪器仪表行业知名的B2B交易平台。"
+  },
+  {
+    "id": 17,
+    "name": "中国工程机械信息网（6300）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_47_1352516173.png",
+    "url": "https://www.6300.net",
+    "description": "创立于1999年的工程机械行业门户，提供挖掘机、装载机等设备资讯、二手交易及配件采购服务。每周发布行业聚焦报告，跟踪全球工程机械50强动态，是行业从业者的重要信息平台。"
+  },
+  {
+    "id": 18,
+    "name": "国际金属加工网（MMS）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_48_1352287773.png",
+    "url": "https://www.mmsonline.com.cn",
+    "description": "金属加工行业专业媒体，报道机床、刀具、智能制造及先进制造技术。提供金属加工领域的技术资讯、产品信息及行业解决方案，服务于机械制造企业及金属加工从业者。"
+  },
+  {
+    "id": 19,
+    "name": "重工机械网（ZGONG）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_50_1351301573.png",
+    "url": "https://www.zgong.com",
+    "description": "重型机械行业B2B平台，提供矿山、起重、工程机械等设备的采购与资讯服务。汇聚行业供应商与采购商资源，提供产品信息、价格参考及市场动态，助力重型机械企业拓展业务。"
+  },
+  {
+    "id": 20,
+    "name": "新能源产业网",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_51_1350595673.png",
+    "url": "https://www.chinaenergy.com",
+    "description": "新能源行业信息平台，报道光伏、风电、储能及清洁能源政策与市场。提供新能源技术动态、产业政策解读及市场数据分析，助力新能源企业把握行业趋势，推动绿色能源发展。"
+  },
+  {
+    "id": 21,
+    "name": "化工机械设备网（HUA JX）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_52_1350432473.png",
+    "url": "https://www.huajx.com",
+    "description": "化工设备行业信息平台，覆盖反应釜、换热器、分离设备等。为化工企业提供设备采购、技术咨询及行业资讯服务，连接设备制造商与终端用户，推动化工装备行业信息流通与交易。"
+  },
+  {
+    "id": 22,
+    "name": "航天3D打印",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_53_1350254873.png",
+    "url": "https://www.3dprint.com.cn",
+    "description": "专注航天领域3D打印技术应用的专业平台，报道增材制造行业动态。聚焦航天器零部件的3D打印工艺、材料研发及产业化应用，推动航天制造技术创新与数字化转型。"
+  },
+  {
+    "id": 23,
+    "name": "仪表网（YBZHAN）",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_54_1350102673.png",
+    "url": "https://www.ybzhan.cn",
+    "description": "仪器仪表行业B2B平台，提供自动化仪表、传感器等产品信息与交易服务。依托兴旺宝旗下资源，为工业自动化、过程控制等领域企业提供产品选型、采购及技术支持服务。"
+  },
+  {
+    "id": 24,
+    "name": "新华社客户端·能源向新力",
+    "logo": "https://cdn.jsdelivr.net/gh/sambluedell/notinon-mage@main/img/imgi_49_135200647354.png",
+    "url": "https://www.xinhuanet.com",
+    "description": "新华社能源频道，聚焦能源转型、新能源发展及双碳战略报道。依托国家级通讯社资源，提供权威能源政策解读、行业深度报道及全球能源市场分析，是能源领域权威信息发布平台。"
+  }
+]

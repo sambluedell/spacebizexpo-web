@@ -2,13 +2,12 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const storage = require('./storage');
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 const isVercel = process.env.VERCEL === '1';
 
-// 数据文件路径（Vercel 用 /tmp，本地用 data/）
-const DATA_DIR = isVercel ? '/tmp/data' : path.join(__dirname, 'data');
 const UPLOAD_DIR = isVercel ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 
 // 中间件
@@ -37,12 +36,10 @@ const MIME_MAP = {
 };
 
 app.use((req, res, next) => {
-  // 只处理 GET 请求
   if (req.method !== 'GET') return next();
-  // API 和上传路径跳过
   if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) return next();
 
-  let filePath = path.join(__dirname, req.path);
+  let filePath = path.join(__dirname, decodeURI(req.path));
   if (!fs.existsSync(filePath)) return next();
   const stat = fs.statSync(filePath);
 
@@ -65,31 +62,19 @@ app.use((req, res, next) => {
   next();
 });
 
-const REGISTRATIONS_FILE = path.join(DATA_DIR, 'registrations.json');
-const NEWS_FILE = path.join(DATA_DIR, 'news.json');
-const EXHIBITORS_FILE = path.join(DATA_DIR, 'exhibitors.json');
-const MEDIA_FILE = path.join(DATA_DIR, 'media.json');
-const DOWNLOADS_FILE = path.join(DATA_DIR, 'downloads.json');
-
-// 初始化数据文件
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(REGISTRATIONS_FILE)) fs.writeFileSync(REGISTRATIONS_FILE, '[]');
-if (!fs.existsSync(NEWS_FILE)) fs.writeFileSync(NEWS_FILE, '[]');
-if (!fs.existsSync(EXHIBITORS_FILE)) fs.writeFileSync(EXHIBITORS_FILE, '[]');
-if (!fs.existsSync(MEDIA_FILE)) fs.writeFileSync(MEDIA_FILE, '[]');
-if (!fs.existsSync(DOWNLOADS_FILE)) fs.writeFileSync(DOWNLOADS_FILE, '[]');
+// 初始化上传目录
 if (!fs.existsSync(UPLOAD_DIR)) fs.mkdirSync(UPLOAD_DIR, { recursive: true });
 
 // 文件上传配置
-const storage = multer.diskStorage({
+const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, UPLOAD_DIR),
   filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
 });
-const upload = multer({ storage });
+const upload = multer({ storage: multerStorage });
 
-// ===== API 路由 =====
+// ===== API 路由（数据通过 storage 读写，支持本地 JSON / Vercel Redis） =====
 
-// 调试：查看文件路径
+// 调试
 app.get('/api/debug', (req, res) => {
   const dir = __dirname;
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -98,148 +83,114 @@ app.get('/api/debug', (req, res) => {
 });
 
 // 参展报名
-app.post('/api/register', (req, res) => {
+app.post('/api/register', async (req, res) => {
   try {
-    const data = req.body;
-    const registrations = JSON.parse(fs.readFileSync(REGISTRATIONS_FILE, 'utf-8'));
-    const newReg = {
-      id: Date.now(),
-      ...data,
-      status: '待确认',
-      createdAt: new Date().toISOString()
-    };
-    registrations.push(newReg);
-    fs.writeFileSync(REGISTRATIONS_FILE, JSON.stringify(registrations, null, 2));
-    res.json({ success: true, message: '报名成功！我们会尽快与您联系。', data: newReg });
-  } catch (err) {
+    const newReg = { ...req.body, status: '待确认', createdAt: new Date().toISOString() };
+    const saved = await storage.add('registrations', newReg);
+    res.json({ success: true, message: '报名成功！我们会尽快与您联系。', data: saved });
+  } catch {
     res.status(500).json({ success: false, message: '提交失败，请重试' });
   }
 });
 
-// 获取所有报名记录（后台用）
-app.get('/api/registrations', (req, res) => {
-  try {
-    const registrations = JSON.parse(fs.readFileSync(REGISTRATIONS_FILE, 'utf-8'));
-    res.json(registrations);
-  } catch (err) {
-    res.status(500).json({ success: false, message: '读取失败' });
-  }
+app.get('/api/registrations', async (req, res) => {
+  try { res.json(await storage.readAll('registrations')); }
+  catch { res.status(500).json({ success: false, message: '读取失败' }); }
 });
 
-// 更新报名状态
-app.put('/api/registrations/:id', (req, res) => {
+app.put('/api/registrations/:id', async (req, res) => {
   try {
-    const registrations = JSON.parse(fs.readFileSync(REGISTRATIONS_FILE, 'utf-8'));
-    const idx = registrations.findIndex(r => r.id == req.params.id);
-    if (idx === -1) return res.status(404).json({ success: false, message: '未找到' });
-    registrations[idx] = { ...registrations[idx], ...req.body };
-    fs.writeFileSync(REGISTRATIONS_FILE, JSON.stringify(registrations, null, 2));
-    res.json({ success: true, data: registrations[idx] });
-  } catch (err) {
+    const updated = await storage.updateOne('registrations', req.params.id, req.body);
+    if (!updated) return res.status(404).json({ success: false, message: '未找到' });
+    res.json({ success: true, data: updated });
+  } catch {
     res.status(500).json({ success: false, message: '更新失败' });
   }
 });
 
-// 删除报名记录
-app.delete('/api/registrations/:id', (req, res) => {
+app.delete('/api/registrations/:id', async (req, res) => {
   try {
-    let registrations = JSON.parse(fs.readFileSync(REGISTRATIONS_FILE, 'utf-8'));
-    registrations = registrations.filter(r => r.id != req.params.id);
-    fs.writeFileSync(REGISTRATIONS_FILE, JSON.stringify(registrations, null, 2));
+    await storage.remove('registrations', req.params.id);
     res.json({ success: true });
-  } catch (err) {
+  } catch {
     res.status(500).json({ success: false, message: '删除失败' });
   }
 });
 
-// 获取统计数据
-app.get('/api/stats', (req, res) => {
+// 统计数据
+app.get('/api/stats', async (req, res) => {
   try {
-    const registrations = JSON.parse(fs.readFileSync(REGISTRATIONS_FILE, 'utf-8'));
+    const registrations = await storage.readAll('registrations');
     res.json({
       total: registrations.length,
       pending: registrations.filter(r => r.status === '待确认').length,
       confirmed: registrations.filter(r => r.status === '已确认').length,
       completed: registrations.filter(r => r.status === '已完成').length
     });
-  } catch (err) {
+  } catch {
     res.status(500).json({ success: false, message: '读取失败' });
   }
 });
 
 // 新闻管理
-app.get('/api/news', (req, res) => {
-  try {
-    const news = JSON.parse(fs.readFileSync(NEWS_FILE, 'utf-8'));
-    res.json(news);
-  } catch (err) {
-    res.status(500).json({ success: false, message: '读取失败' });
-  }
+app.get('/api/news', async (req, res) => {
+  try { res.json(await storage.readAll('news')); }
+  catch { res.status(500).json({ success: false, message: '读取失败' }); }
 });
 
-app.post('/api/news', upload.single('image'), (req, res) => {
+app.post('/api/news', upload.single('image'), async (req, res) => {
   try {
-    const news = JSON.parse(fs.readFileSync(NEWS_FILE, 'utf-8'));
     const newItem = {
-      id: Date.now(),
       title: req.body.title,
       summary: req.body.summary,
       content: req.body.content,
       image: req.file ? '/uploads/' + req.file.filename : '',
       date: new Date().toISOString().split('T')[0]
     };
-    news.push(newItem);
-    fs.writeFileSync(NEWS_FILE, JSON.stringify(news, null, 2));
-    res.json({ success: true, data: newItem });
-  } catch (err) {
+    const saved = await storage.add('news', newItem);
+    res.json({ success: true, data: saved });
+  } catch {
     res.status(500).json({ success: false, message: '添加失败' });
   }
 });
 
-app.delete('/api/news/:id', (req, res) => {
+app.delete('/api/news/:id', async (req, res) => {
   try {
-    let news = JSON.parse(fs.readFileSync(NEWS_FILE, 'utf-8'));
-    news = news.filter(n => n.id != req.params.id);
-    fs.writeFileSync(NEWS_FILE, JSON.stringify(news, null, 2));
+    await storage.remove('news', req.params.id);
     res.json({ success: true });
-  } catch (err) {
+  } catch {
     res.status(500).json({ success: false, message: '删除失败' });
   }
 });
 
-// ===== 通用 CRUD 辅助 =====
-function createCrudRoutes(apiPath, filePath) {
-  app.get(apiPath, (req, res) => {
-    try { res.json(JSON.parse(fs.readFileSync(filePath, 'utf-8'))); }
+// ===== 通用 CRUD 辅助（使用 storage） =====
+function createCrudRoutes(apiPath, key) {
+  app.get(apiPath, async (req, res) => {
+    try { res.json(await storage.readAll(key)); }
     catch { res.json([]); }
   });
-  app.post(apiPath, (req, res) => {
+  app.post(apiPath, async (req, res) => {
     try {
-      const items = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      const newItem = { id: Date.now(), ...req.body };
-      items.push(newItem);
-      fs.writeFileSync(filePath, JSON.stringify(items, null, 2));
+      const newItem = await storage.add(key, req.body);
       res.json({ success: true, data: newItem });
     } catch { res.status(500).json({ success: false, message: '添加失败' }); }
   });
-  app.delete(apiPath + '/:id', (req, res) => {
+  app.delete(apiPath + '/:id', async (req, res) => {
     try {
-      let items = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      items = items.filter(i => i.id != req.params.id);
-      fs.writeFileSync(filePath, JSON.stringify(items, null, 2));
+      await storage.remove(key, req.params.id);
       res.json({ success: true });
     } catch { res.status(500).json({ success: false, message: '删除失败' }); }
   });
 }
 
 // 展商目录
-createCrudRoutes('/api/exhibitors', EXHIBITORS_FILE);
+createCrudRoutes('/api/exhibitors', 'exhibitors');
 // 合作媒体
-createCrudRoutes('/api/media', MEDIA_FILE);
+createCrudRoutes('/api/media', 'media');
 // 资料下载
-createCrudRoutes('/api/downloads', DOWNLOADS_FILE);
+createCrudRoutes('/api/downloads', 'downloads');
 
-// 文件上传（图片）
+// 文件上传
 app.post('/api/upload', upload.single('file'), (req, res) => {
   if (!req.file) return res.status(400).json({ success: false, message: '请选择文件' });
   res.json({ success: true, url: '/uploads/' + req.file.filename });
@@ -255,14 +206,20 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-// ===== 启动服务器（本地）/ 导出（Vercel） =====
-if (!isVercel) {
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`🚀 航天展网站已启动！`);
-    console.log(`   主站: http://localhost:${PORT}/`);
-    console.log(`   📊 后台管理: http://localhost:${PORT}/admin/`);
-    console.log(`   ⚠️  后台默认账号: admin  密码: e0005068`);
-  });
+// ===== 启动 =====
+async function start() {
+  if (isVercel) {
+    await storage.seedIfEmpty();
+  }
+  if (!isVercel) {
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`🚀 航天展网站已启动！`);
+      console.log(`   主站: http://localhost:${PORT}/`);
+      console.log(`   📊 后台管理: http://localhost:${PORT}/admin/`);
+      console.log(`   ⚠️  后台默认账号: admin  密码: e0005068`);
+    });
+  }
 }
+start();
 
 module.exports = app;

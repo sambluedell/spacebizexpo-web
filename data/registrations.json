@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1778359810102,
+    "companyName": "测试",
+    "companyNameEn": "一人公司",
+    "contact": "李林",
+    "phone": "135664587987",
+    "email": "sambluedell@gmail.com",
+    "type": "参展",
+    "boothType": "空地",
+    "productCategory": "遥感",
+    "notes": "打折扣",
+    "status": "待确认",
+    "createdAt": "2026-05-09T20:50:10.102Z"
+  }
+]
