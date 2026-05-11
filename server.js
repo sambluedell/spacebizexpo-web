@@ -92,32 +92,9 @@ const upload = multer({ storage });
 // 调试：查看文件路径
 app.get('/api/debug', (req, res) => {
   const dir = __dirname;
-  const files = fs.readdirSync(dir).slice(0, 20);
-  const cssDir = path.join(dir, 'css');
-  const jsDir = path.join(dir, 'js');
-  const imgDir = path.join(dir, 'images');
-  const cssExists = fs.existsSync(cssDir);
-  const jsExists = fs.existsSync(jsDir);
-  const imgExists = fs.existsSync(imgDir);
-  const cssFiles = cssExists ? fs.readdirSync(cssDir) : [];
-  const jsFiles = jsExists ? fs.readdirSync(jsDir) : [];
-  const imgFiles = imgExists ? fs.readdirSync(imgDir) : [];
-  const adminDir = path.join(dir, 'admin');
-  const adminExists = fs.existsSync(adminDir);
-  const adminFiles = adminExists ? fs.readdirSync(adminDir) : [];
-  // Test reading files
-  const jpgExists = fs.existsSync('/var/task/images/logo.jpg');
-  const jsExists2 = fs.existsSync('/var/task/js/main.js');
-  res.json({
-    dir, files, cwd: process.cwd(),
-    cssExists, cssFiles,
-    jsExists, jsFiles,
-    imgExists, imgFiles,
-    adminExists, adminFiles,
-    jpgExists, jsExists2,
-    req_path_test: path.join(dir, '/js/main.js'),
-    req_path_img: path.join(dir, '/images/logo.jpg'),
-  });
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const allFiles = entries.map(e => ({ name: e.name, isDir: e.isDirectory(), isFile: e.isFile() }));
+  res.json({ dir, allFiles, cwd: process.cwd() });
 });
 
 // 参展报名
