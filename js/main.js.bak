@@ -1,0 +1,129 @@
+/* ===== 2026深圳国际商业航天展览会 - JS ===== */
+
+// 倒计时
+function initCountdown() {
+  const target = new Date(2026, 7, 19, 9, 0, 0); // Aug 19, 2026 09:00
+  function tick() {
+    const now = new Date();
+    const diff = Math.max(0, target - now);
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+// 数字递增动画
+function animateCounter(el, target) {
+  let current = 0;
+  const step = Math.ceil(target / 60);
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = current.toLocaleString();
+  }, 20);
+}
+
+// 滚动动画
+function initScrollAnimation() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-visible');
+        // 触发数字动画
+        if (entry.target.classList.contains('stats-grid')) {
+          entry.target.querySelectorAll('.stats-item .num').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            if (target && !el.dataset.animated) {
+              el.dataset.animated = 'true';
+              animateCounter(el, target);
+            }
+          });
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
+
+// 日程切换
+function initScheduleTabs() {
+  const tabs = document.querySelectorAll('.schedule-tab');
+  const days = document.querySelectorAll('.schedule-day');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      days.forEach(d => d.classList.remove('active'));
+      const target = document.getElementById(tab.dataset.day);
+      if (target) target.classList.add('active');
+    });
+  });
+}
+
+// 移动端菜单
+function initMobileMenu() {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  // 点击有下拉菜单的项
+  nav.querySelectorAll('li').forEach(li => {
+    if (li.querySelector('.dropdown')) {
+      li.querySelector('a').addEventListener('click', (e) => {
+        if (window.innerWidth <= 968) {
+          e.preventDefault();
+          li.classList.toggle('open');
+        }
+      });
+    }
+  });
+  // 点击页面其他位置关闭菜单
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.header-inner') && nav.classList.contains('open')) {
+      nav.classList.remove('open');
+    }
+  });
+}
+
+// 表单提交
+function initForm() {
+  const form = document.getElementById('register-form');
+  if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form));
+    try {
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+      if (result.success) {
+        alert('✅ ' + result.message);
+        form.reset();
+      } else {
+        alert('❌ ' + result.message);
+      }
+    } catch {
+      alert('❌ 提交失败，请稍后重试');
+    }
+  });
+}
+
+// 页面加载
+document.addEventListener('DOMContentLoaded', () => {
+  initCountdown();
+  initScrollAnimation();
+  initScheduleTabs();
+  initMobileMenu();
+  initForm();
+});

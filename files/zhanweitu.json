@@ -1,0 +1,417 @@
+{
+    "pdf_info": [
+        {
+            "para_blocks": [
+                {
+                    "type": "table",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "table",
+                                            "html": "<table>\n  <tr>\n    <th rowspan=\"2\" colspan=\"19\"><p></p></th>\n  </tr>\n  <tr>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p>A267</p></td>\n    <td><p>A266</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A265</p></td>\n    <td><p>A263</p></td>\n    <td><p>A262</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A261</p></td>\n    <td><p>A260</p></td>\n    <td><p>A259</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A258</p></td>\n    <td><p>A257</p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p>A230</p></td>\n    <td><p></p></td>\n    <td><p>A231</p></td>\n    <td><p>A235</p></td>\n    <td><p></p></td>\n    <td><p>A236</p></td>\n    <td><p>A239</p></td>\n    <td><p>A241</p></td>\n    <td><p></p></td>\n    <td><p>A243</p></td>\n    <td><p>A246</p></td>\n    <td><p></p></td>\n    <td><p>A247</p></td>\n    <td><p>A251</p></td>\n    <td><p></p></td>\n    <td><p>A256</p></td>\n    <td><p>A255</p></td>\n    <td><p></p></td>\n    <td><p>A200</p></td>\n  </tr>\n  <tr>\n    <td><p>A229</p></td>\n    <td><p></p></td>\n    <td><p>A232</p></td>\n    <td><p>A233</p></td>\n    <td><p></p></td>\n    <td><p>A237</p></td>\n    <td><p>A238</p></td>\n    <td><p>A240</p></td>\n    <td><p></p></td>\n    <td><p>A242</p></td>\n    <td><p>A245</p></td>\n    <td><p></p></td>\n    <td><p>A248</p></td>\n    <td><p>A249</p></td>\n    <td><p></p></td>\n    <td><p>A252</p></td>\n    <td><p>A253</p></td>\n    <td><p></p></td>\n    <td><p>A199</p></td>\n  </tr>\n  <tr>\n    <td><p>A228</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A198</p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"2\"><p>A227 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A225               18㎡</p></td>\n    <td rowspan=\"2\"><p>A223 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A221                                    18㎡</p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>A219              36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A215                18㎡</p></td>\n    <td rowspan=\"2\"><p>A212 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A210                18㎡</p></td>\n    <td rowspan=\"2\"><p>A208 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A205                18㎡</p></td>\n    <td rowspan=\"2\"><p>A202 18㎡</p></td>\n    <td><p></p></td>\n    <td><p>A197</p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A196</p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"3\" colspan=\"2\"><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"3\" colspan=\"2\"><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"2\" colspan=\"2\"><p>A116                      36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A128                           18㎡</p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>A132                        36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>星梭  A158                     36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>A162                        36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>A186                      36㎡</p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"2\"><p>A125 18㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A195</p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A193</p></td>\n  </tr>\n  <tr>\n    <td><p>A122</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A110              27㎡</p></td>\n    <td rowspan=\"2\"><p>A113              27㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>恒昌A135                            18㎡</p></td>\n    <td colspan=\"2\"><p>A138                            18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>星辉航天 A155            18㎡</p></td>\n    <td rowspan=\"2\"><p>A153              18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A166                     18㎡</p></td>\n    <td rowspan=\"2\"><p>A168                     18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A179             18㎡</p></td>\n    <td rowspan=\"2\"><p>A181             18㎡</p></td>\n    <td><p></p></td>\n    <td><p>A192</p></td>\n  </tr>\n  <tr>\n    <td><p>A121</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td colspan=\"2\"><p>A140                          18㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A191</p></td>\n  </tr>\n  <tr>\n    <td><p>A120</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A190</p></td>\n  </tr>\n  <tr>\n    <td><p>A119</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>云火A105                18㎡</p></td>\n    <td rowspan=\"2\"><p>A108 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>A145                                    36㎡</p></td>\n    <td rowspan=\"2\"><p>阿塔米A147                                   18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>普拉迪A149              36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>星启空间    A170             36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"2\"><p> 微纳星空（预）  A086                   72㎡</p></td>\n    <td><p></p></td>\n    <td><p>A189</p></td>\n  </tr>\n  <tr>\n    <td><p>A118</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A188</p></td>\n  </tr>\n  <tr>\n    <td><p>A117</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>国机精工  A103                   36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"3\"><p>天兵科技    A099                             54㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>海格通信              A095                   36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>雷科防务              A090                 36㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>已定A187</p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"3\" colspan=\"2\"><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"3\" colspan=\"2\"><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"2\"><p>航宇伺服A035 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"2\"><p>银河航天              A036               72㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"3\" colspan=\"2\"><p>航天宏图 （留）             A042               54㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"3\" colspan=\"3\"><p>长光卫星                                       A048                                     81㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"3\" colspan=\"2\"><p>星河动力（预）               A055               54㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"2\"><p>航天环宇（留）                   A060               72㎡</p></td>\n    <td><p></p></td>\n    <td><p>格思A085</p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A083</p></td>\n  </tr>\n  <tr>\n    <td><p>A032</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A082</p></td>\n  </tr>\n  <tr>\n    <td><p>已定A031</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"5\" colspan=\"2\"><p>蓝箭航天（预）               A016                     90㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"5\" colspan=\"3\"><p>中国航天商业 火箭                                       A001                           135㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"5\" colspan=\"2\"><p>中国卫星               A068                           90㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>索思A081</p></td>\n  </tr>\n  <tr>\n    <td><p>已定A030</p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"2\"><p>中科宇航 （预）                    A025                72㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"2\"><p>星际荣耀（预）            A076                     72㎡</p></td>\n    <td><p></p></td>\n    <td><p>A080</p></td>\n  </tr>\n  <tr>\n    <td><p>A029</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A079</p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"2\"><p>旺灵科技A02818㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>春晖A078 18㎡</p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>观众入口</p></td>\n    <td><p></p></td>\n    <td><p><img src=\"https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/04ccaf9e4a56cb8b1fe7ec6947922e7faf29be095829c9b7b98f51bac483c39b.jpg\"/></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"3\"><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p>A268</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>中遥智图（预）A278    36㎡</p></td>\n    <td><p></p></td>\n    <td><p>A280</p></td>\n    <td><p>A282</p></td>\n    <td><p>A285</p></td>\n    <td><p>A288</p></td>\n    <td colspan=\"4\"><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>天空空间           A306                    36㎡</p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>A312                    36㎡</p></td>\n    <td><p></p></td>\n    <td><p>A315</p></td>\n  </tr>\n  <tr>\n    <td><p>A269</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A316</p></td>\n  </tr>\n  <tr>\n    <td><p>A270</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p>A318</p></td>\n  </tr>\n</table>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 0,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 0
+                },
+                {
+                    "type": "table",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "table",
+                                            "html": "<table>\n  <tr>\n    <th rowspan=\"2\" colspan=\"19\"><p></p></th>\n  </tr>\n  <tr>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td rowspan=\"10\" colspan=\"17\"><p>商业航天生态合作大会论坛区                                                                                                                                                                                                                                                                                                                                                                                 </p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p><img src=\"https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg\"/></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B180                      36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B175                 36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B170                   36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B156                   36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B152                     36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B148                     36㎡</p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>吉天星舟B108                18㎡</p></td>\n    <td rowspan=\"2\"><p>B11218㎡</p></td>\n    <td><p></p></td>\n    <td colspan=\"2\"><p>B125 18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>B130               18㎡</p></td>\n    <td rowspan=\"2\"><p>B13218㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>A135              18㎡</p></td>\n    <td rowspan=\"2\"><p>B137             18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\"><p>B140            18㎡</p></td>\n    <td rowspan=\"2\"><p>亚加电机B142           18㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"2\"><p>浙江微波毫米波射频产业联盟     B086                   72㎡</p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"3\" colspan=\"2\"><p>B0103               36㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B106                36㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B099                36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B095                 36㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"2\" colspan=\"2\"><p>B090                 36㎡</p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n</table>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 1,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 1
+                },
+                {
+                    "type": "table",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "table",
+                                            "html": "<table>\n  <tr>\n    <th rowspan=\"4\" colspan=\"5\"><p>航空航天科技成果展示区                          B050                                                         180㎡</p></th>\n    <th><p></p></th>\n    <th rowspan=\"4\" colspan=\"5\"><p>卫星互联网展示区                                  B100                                                        180㎡</p></th>\n    <th><p></p></th>\n    <th rowspan=\"8\" colspan=\"5\"><p>航空航天科研院所展示区                                                                    B150                                 360㎡</p></th>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td rowspan=\"4\" colspan=\"5\"><p>航空航天高校成果展示区                        B025                                                           180㎡</p></td>\n    <td><p></p></td>\n    <td rowspan=\"4\" colspan=\"5\"><p>太空光伏展示区                                     B88                                                          180㎡</p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n  <tr>\n    <td><p></p></td>\n    <td><p></p></td>\n  </tr>\n</table>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 2,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 2
+                },
+                {
+                    "type": "table",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "table",
+                                            "html": "<table>\n  <tr>\n    <th rowspan=\"2\" colspan=\"2\"><p>B001                   36㎡</p></th>\n    <th rowspan=\"2\" colspan=\"2\"><p>B006                 36㎡</p></th>\n  </tr>\n  <tr>\n  </tr>\n</table>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 3,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 3
+                },
+                {
+                    "type": "table",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "table",
+                                            "html": "<table>\n  <tr>\n    <th rowspan=\"2\" colspan=\"4\"><p>杭州变频器产业联盟B018                72㎡\n</p></th>\n  </tr>\n  <tr>\n  </tr>\n</table>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 4,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 4
+                },
+                {
+                    "type": "table",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "table",
+                                            "html": "<table>\n  <tr>\n    <th><p>B008</p></th>\n    <th><p>B010</p></th>\n    <th><p>B012</p></th>\n    <th><p>B014</p></th>\n  </tr>\n</table>"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 5,
+                            "type": "table_body"
+                        }
+                    ],
+                    "index": 5
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/c2703bf3f8fb16b6954752896b7851df1f3f3283a4e67df844b29f1a1858344c.png"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 6,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 6
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/c2703bf3f8fb16b6954752896b7851df1f3f3283a4e67df844b29f1a1858344c.png"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 7,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 7
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 8,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 8
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 9,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 9
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 10,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 10
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 11,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 11
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 12,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 12
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 13,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 13
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 14,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 14
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/04ccaf9e4a56cb8b1fe7ec6947922e7faf29be095829c9b7b98f51bac483c39b.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 15,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 15
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 16,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 16
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 17,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 17
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 18,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 18
+                },
+                {
+                    "type": "image",
+                    "blocks": [
+                        {
+                            "lines": [
+                                {
+                                    "spans": [
+                                        {
+                                            "type": "image",
+                                            "image_path": "https://cdn-mineru.openxlab.org.cn/result/2026-05-11/3dbcf0ad-bae2-466c-8e55-79c6beb8bf39/49f6fa3a103c64911aa220fee93a85aa6731b2a11683a13e76bd2ad56252e186.jpg"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "index": 19,
+                            "type": "image_body"
+                        }
+                    ],
+                    "index": 19
+                }
+            ],
+            "discarded_blocks": [],
+            "page_idx": 0
+        },
+        {
+            "para_blocks": [],
+            "discarded_blocks": [],
+            "page_idx": 1
+        }
+    ],
+    "_backend": "office",
+    "_version_name": "3.1.8"
+}
