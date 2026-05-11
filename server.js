@@ -15,12 +15,48 @@ const UPLOAD_DIR = isVercel ? '/tmp/uploads' : path.join(__dirname, 'uploads');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 静态文件
-const ROOT_DIR = isVercel ? __dirname : __dirname;
-console.log('ROOT_DIR:', ROOT_DIR);
-console.log('__dirname:', __dirname);
-console.log('cwd:', process.cwd());
-app.use(express.static(ROOT_DIR));
+// ===== 手动静态文件服务（兼容 Vercel Lambda） =====
+const MIME_MAP = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'application/javascript; charset=utf-8',
+  '.json': 'application/json',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
+  '.pdf': 'application/pdf',
+  '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  '.doc': 'application/msword',
+  '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  '.zip': 'application/zip',
+  '.mp4': 'video/mp4',
+  '.webm': 'video/webm',
+};
+
+app.use((req, res, next) => {
+  // 只处理 GET 请求
+  if (req.method !== 'GET') return next();
+  // API 和上传路径跳过
+  if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) return next();
+
+  let filePath = path.join(__dirname, req.path);
+  if (!fs.existsSync(filePath)) return next();
+  const stat = fs.statSync(filePath);
+
+  if (stat.isDirectory()) {
+    const indexPath = path.join(filePath, 'index.html');
+    if (!fs.existsSync(indexPath)) return next();
+    filePath = indexPath;
+  }
+
+  const ext = path.extname(filePath).toLowerCase();
+  const mime = MIME_MAP[ext] || 'application/octet-stream';
+  res.setHeader('Content-Type', mime);
+  res.sendFile(filePath);
+});
 
 // 请求日志
 app.use((req, res, next) => {
@@ -28,16 +64,6 @@ app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} - from ${ip}`);
   next();
 });
-
-// Vercel 调试
-if (isVercel) {
-  app.get('/__debug', (req, res) => {
-    const fs2 = require('fs');
-    const files = fs2.readdirSync(ROOT_DIR).slice(0, 30);
-    const cssExists = fs2.existsSync(path.join(ROOT_DIR, 'css/style.css'));
-    res.json({ rootDir: ROOT_DIR, cwd: process.cwd(), files, cssExists, __dirname });
-  });
-}
 
 const REGISTRATIONS_FILE = path.join(DATA_DIR, 'registrations.json');
 const NEWS_FILE = path.join(DATA_DIR, 'news.json');
@@ -174,13 +200,11 @@ app.delete('/api/news/:id', (req, res) => {
 });
 
 // ===== 通用 CRUD 辅助 =====
-function createCrudRoutes(apiPath, filePath, fieldName) {
-  // GET 列表
+function createCrudRoutes(apiPath, filePath) {
   app.get(apiPath, (req, res) => {
     try { res.json(JSON.parse(fs.readFileSync(filePath, 'utf-8'))); }
     catch { res.json([]); }
   });
-  // POST 新增
   app.post(apiPath, (req, res) => {
     try {
       const items = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -190,7 +214,6 @@ function createCrudRoutes(apiPath, filePath, fieldName) {
       res.json({ success: true, data: newItem });
     } catch { res.status(500).json({ success: false, message: '添加失败' }); }
   });
-  // DELETE 删除
   app.delete(apiPath + '/:id', (req, res) => {
     try {
       let items = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -214,7 +237,7 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
   res.json({ success: true, url: '/uploads/' + req.file.filename });
 });
 
-// 登录验证（简单版）
+// 登录验证
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   if (username === 'admin' && password === 'e0005068') {
@@ -224,21 +247,7 @@ app.post('/api/login', (req, res) => {
   }
 });
 
-// ===== SPA 回退：非 API 路由都返回 index.html =====
-app.get('*', (req, res) => {
-  if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) {
-    res.status(404).json({ error: 'Not found' });
-    return;
-  }
-  const indexPath = path.join(ROOT_DIR, 'index.html');
-  if (fs.existsSync(indexPath)) {
-    res.sendFile(indexPath);
-  } else {
-    res.status(500).send('index.html not found');
-  }
-});
-
-// ===================== 启动服务器（本地）/ 导出（Vercel） =====================
+// ===== 启动服务器（本地）/ 导出（Vercel） =====
 if (!isVercel) {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 航天展网站已启动！`);
