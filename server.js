@@ -16,7 +16,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // 静态文件
-const ROOT_DIR = isVercel ? process.cwd() : __dirname;
+const ROOT_DIR = isVercel ? __dirname : __dirname;
+console.log('ROOT_DIR:', ROOT_DIR);
+console.log('__dirname:', __dirname);
+console.log('cwd:', process.cwd());
 app.use(express.static(ROOT_DIR));
 
 // 请求日志
@@ -25,6 +28,16 @@ app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url} - from ${ip}`);
   next();
 });
+
+// Vercel 调试
+if (isVercel) {
+  app.get('/__debug', (req, res) => {
+    const fs2 = require('fs');
+    const files = fs2.readdirSync(ROOT_DIR).slice(0, 30);
+    const cssExists = fs2.existsSync(path.join(ROOT_DIR, 'css/style.css'));
+    res.json({ rootDir: ROOT_DIR, cwd: process.cwd(), files, cssExists, __dirname });
+  });
+}
 
 const REGISTRATIONS_FILE = path.join(DATA_DIR, 'registrations.json');
 const NEWS_FILE = path.join(DATA_DIR, 'news.json');
