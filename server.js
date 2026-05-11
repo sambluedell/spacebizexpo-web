@@ -87,7 +87,17 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// ===================== API 路由 =====================
+// ===== API 路由 =====
+
+// 调试：查看文件路径
+app.get('/api/debug', (req, res) => {
+  const dir = __dirname;
+  const files = fs.readdirSync(dir).slice(0, 20);
+  const cssDir = path.join(dir, 'css');
+  const cssExists = fs.existsSync(cssDir);
+  const cssFiles = cssExists ? fs.readdirSync(cssDir) : [];
+  res.json({ dir, files, cssExists, cssFiles, cwd: process.cwd() });
+});
 
 // 参展报名
 app.post('/api/register', (req, res) => {
