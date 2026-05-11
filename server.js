@@ -207,19 +207,18 @@ app.post('/api/login', (req, res) => {
 });
 
 // ===== 启动 =====
-async function start() {
-  if (isVercel) {
-    await storage.seedIfEmpty();
-  }
-  if (!isVercel) {
+if (require.main === module) {
+  storage.seedIfEmpty().then(() => {
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`🚀 航天展网站已启动！`);
       console.log(`   主站: http://localhost:${PORT}/`);
       console.log(`   📊 后台管理: http://localhost:${PORT}/admin/`);
       console.log(`   ⚠️  后台默认账号: admin  密码: e0005068`);
     });
-  }
+  });
+} else {
+  // Vercel: seed Redis in background
+  storage.seedIfEmpty();
 }
-start();
 
 module.exports = app;

@@ -17,8 +17,7 @@ if (isVercel) {
 
 async function readAll(key) {
   if (redis) {
-    const data = await redis.lrange(key, 0, -1);
-    return data.map(JSON.parse);
+    return await redis.lrange(key, 0, -1);
   }
   const fp = path.join(DATA_DIR, `${key}.json`);
   if (!fs.existsSync(fp)) return [];
