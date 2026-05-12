@@ -570,6 +570,117 @@ input, select, textarea { font-family: inherit; }
 }
 
 /* ============================================================
+   DOWNLOAD MODAL
+   ============================================================ */
+.dl-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+.dl-modal.active {
+  display: flex;
+}
+.dl-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+}
+.dl-modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 36px 36px;
+  max-width: 580px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: modalIn .3s ease;
+}
+.dl-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #999;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color .2s;
+}
+.dl-modal-close:hover { color: #333; }
+.dl-modal-content h3 {
+  font-size: 1.3rem;
+  color: var(--navy);
+  font-weight: 700;
+}
+.dl-modal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.dl-modal-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--gray-bg);
+  border-radius: var(--radius);
+  transition: all .2s;
+  border: 1px solid transparent;
+}
+.dl-modal-item:hover {
+  border-color: var(--gold);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.dl-modal-item .icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(192,146,62,.1);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.dl-modal-item .info {
+  flex: 1;
+  min-width: 0;
+}
+.dl-modal-item .info h5 {
+  font-size: .9rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.dl-modal-item .info span {
+  font-size: .78rem;
+  color: var(--text-secondary);
+}
+.dl-modal-item .dl-btn {
+  padding: 8px 20px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 6px;
+  font-size: .8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all .2s;
+  text-decoration: none;
+}
+.dl-modal-item .dl-btn:hover {
+  background: var(--navy-light);
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 #footer { background: var(--navy-deep); color: rgba(255,255,255,.5); padding: 52px 0 24px; font-size: .83rem; }

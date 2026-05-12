@@ -376,26 +376,53 @@
     .catch(() => { grid.innerHTML = '<p style="text-align:center;color:#aaa;">加载失败</p>'; });
 })();
 
-// --- Load downloads from API ---
-(function loadDownloads() {
-  const grid = document.getElementById('dl-grid');
-  if (!grid) return;
-  fetch('/api/downloads')
-    .then(r => r.json())
-    .then(items => {
-      if (items.length === 0) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">暂无数据</p>'; return; }
-      grid.innerHTML = items.map(i => {
-        const ext = (i.filePath || '').split('.').pop().toLowerCase();
-        const iconMap = { pdf: '📄', doc: '📝', docx: '📝', xls: '📊', xlsx: '📊', ppt: '📑', pptx: '📑', png: '🖼', jpg: '🖼', jpeg: '🖼', zip: '📦', rar: '📦' };
-        const icon = iconMap[ext] || '📄';
-        return `<div class="dl-card">
-          <div class="dl-icon">${icon}</div>
-          <div class="dl-info"><h5>${i.title}</h5><span>${i.description || ''}</span></div>
-          <a href="${i.filePath}" class="dl-btn" download>下载</a>
-        </div>`;
-      }).join('');
-    })
-    .catch(() => { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">加载失败</p>'; });
+// --- Download Modal ---
+(function initDownloadModal() {
+  // Expose open/close functions globally
+  window.openDownloadModal = function() {
+    const modal = document.getElementById('dlModal');
+    if (!modal) return;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Load downloads from API
+    const grid = document.getElementById('dlModalGrid');
+    if (!grid) return;
+    grid.innerHTML = '<p style="text-align:center;color:#aaa;">加载中...</p>';
+    fetch('/api/downloads')
+      .then(r => r.json())
+      .then(items => {
+        if (items.length === 0) { grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:#aaa;">暂无数据</p>'; return; }
+        grid.innerHTML = items.map(i => {
+          const ext = (i.filePath || '').split('.').pop().toLowerCase();
+          const iconMap = { pdf: '📄', doc: '📝', docx: '📝', xls: '📊', xlsx: '📊', ppt: '📑', pptx: '📑', png: '🖼', jpg: '🖼', jpeg: '🖼', zip: '📦', rar: '📦' };
+          const icon = iconMap[ext] || '📄';
+          return `<div class="dl-modal-item">
+            <div class="icon">${icon}</div>
+            <div class="info"><h5>${i.title}</h5><span>${i.description || ''}</span></div>
+            <a href="${i.filePath}" class="dl-btn" download target="_blank">下载</a>
+          </div>`;
+        }).join('');
+      })
+      .catch(() => { grid.innerHTML = '<p style="text-align:center;color:#aaa;">加载失败</p>'; });
+  };
+
+  window.closeDownloadModal = function() {
+    const modal = document.getElementById('dlModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('dlModal');
+      if (modal && modal.classList.contains('active')) {
+        closeDownloadModal();
+      }
+    }
+  });
 })();
 
 // --- Stats counter animation + schedule ---

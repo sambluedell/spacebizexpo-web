@@ -6,20 +6,20 @@
 <title>商业航天生态合作大会暨2026深圳国际商业航天展览会 | 深圳会展中心</title>
 <meta name="description" content="2026年8月19日-21日，深圳会展中心（福田）。中国遥感应用协会、中国通信工业协会联合主办。商业火箭、卫星平台、地面系统、太空经济全产业链盛会。">
 <meta name="keywords" content="商业航天,深圳航天展,航天展览,2026航天展,商业航天大会,卫星,火箭">
-<link rel="canonical" href="https://website-d5rvm7ujk-sambluedells-projects.vercel.app/">
+<link rel="canonical" href="https://www.spacebizexpo.cn/">
 <!-- Open Graph -->
 <meta property="og:title" content="商业航天生态合作大会暨2026深圳国际商业航天展览会">
 <meta property="og:description" content="2026年8月19日-21日，深圳会展中心。中国遥感应用协会、中国通信工业协会联合主办。">
 <meta property="og:type" content="event">
-<meta property="og:url" content="https://website-d5rvm7ujk-sambluedells-projects.vercel.app/">
-<meta property="og:image" content="https://website-d5rvm7ujk-sambluedells-projects.vercel.app/images/logo.jpg">
+<meta property="og:url" content="https://www.spacebizexpo.cn/">
+<meta property="og:image" content="https://www.spacebizexpo.cn/images/logo.jpg">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:site_name" content="2026深圳国际商业航天展览会">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="商业航天生态合作大会暨2026深圳国际商业航天展览会">
 <meta name="twitter:description" content="2026年8月19日-21日，深圳会展中心。中国遥感应用协会、中国通信工业协会联合主办。">
-<meta name="twitter:image" content="https://website-d5rvm7ujk-sambluedells-projects.vercel.app/images/logo.jpg">
+<meta name="twitter:image" content="https://www.spacebizexpo.cn/images/logo.jpg">
 <!-- JSON-LD 结构化数据 -->
 <script type="application/ld+json">
 {
@@ -52,7 +52,7 @@
       "name": "中国通信工业协会"
     }
   ],
-  "image": "https://website-d5rvm7ujk-sambluedells-projects.vercel.app/images/logo.jpg"
+  "image": "https://www.spacebizexpo.cn/images/logo.jpg"
 }
 </script>
 <link rel="stylesheet" href="/css/style.css">
@@ -64,7 +64,7 @@
   <div class="container">
     <span>商业航天生态合作大会暨2026深圳国际商业航天展览会 · 2026年8月19日-21日 · 深圳会展中心</span>
     <div>
-      <a href="/files/2026深圳国际商业航天展览会邀请函.pdf" target="_blank">资料下载</a>
+      <a href="javascript:void(0)" onclick="openDownloadModal()">资料下载</a>
     </div>
   </div>
 </div>
@@ -78,7 +78,7 @@
     <button id="menu-btn">☰</button>
     <nav>
       <ul class="nav-main">
-        <li class="active"><a href="#home">首页</a></li>
+        <li class="active"><a href="#hero">首页</a></li>
         <li>
           <a href="#about">展会概况</a>
           <div class="dropdown">
@@ -101,7 +101,7 @@
         <li>
           <a href="#contact">参展指南</a>
           <div class="dropdown">
-            <a href="/files/2026深圳国际商业航天展览会邀请函.pdf" target="_blank">资料下载</a>
+            <a href="javascript:void(0)" onclick="openDownloadModal()">资料下载</a>
             <a href="https://uri.amap.com/marker?position=114.0579,22.5431&name=深圳会展中心" target="_blank">场地信息</a>
             <a href="#contact">联系我们</a>
           </div>
@@ -442,19 +442,6 @@
   </div>
 </section>
 
-<!-- ===== 资料下载 ===== -->
-<section id="download">
-  <div class="container">
-    <div class="sec-title">
-      <h3>资料下载</h3>
-      <p>展会相关资料</p>
-    </div>
-    <div class="dl-grid" id="dl-grid">
-      <p style="text-align:center;color:#aaa;">加载中...</p>
-    </div>
-  </div>
-</section>
-
 <!-- ===== 参展名录 ===== -->
 <section id="exhibitors">
   <div class="container">
@@ -509,7 +496,7 @@
         <h3>📋 报名咨询</h3>
         <div class="info-row">
           <span class="label">📞</span>
-          <span class="value">0755-8888-8888（咨询热线）</span>
+          <span class="value">18927449208（联系人：Sam）</span>
         </div>
         <div class="info-row">
           <span class="label">📧</span>
@@ -563,6 +550,19 @@
 
 <!-- ===== 场地信息（跳转地图） ===== -->
 
+<!-- ===== 资料下载弹窗 ===== -->
+<div class="dl-modal" id="dlModal">
+  <div class="dl-modal-overlay" onclick="closeDownloadModal()"></div>
+  <div class="dl-modal-content">
+    <button class="dl-modal-close" onclick="closeDownloadModal()">&times;</button>
+    <h3>📄 资料下载</h3>
+    <p style="color:var(--text-secondary);margin-bottom:20px;">展会相关资料文件</p>
+    <div class="dl-modal-list" id="dlModalGrid">
+      <p style="text-align:center;color:#aaa;">加载中...</p>
+    </div>
+  </div>
+</div>
+
 <!-- ===== 页脚 ===== -->
 <footer id="footer">
   <div class="container">
@@ -579,7 +579,7 @@
         <a href="#about">展会概况</a>
         <a href="#scope">展品范围</a>
         <a href="#schedule">日程安排</a>
-        <a href="/files/2026深圳国际商业航天展览会邀请函.pdf" target="_blank">资料下载</a>
+        <a href="javascript:void(0)" onclick="openDownloadModal()">资料下载</a>
       </div>
       <div class="ft-col">
         <h5>服务</h5>
@@ -595,7 +595,7 @@
       </div>
       <div class="ft-col">
         <h5>联系我们</h5>
-        <a>📞 0755-8888-8888</a>
+        <a>📞 18927449208（Sam）</a>
         <a>📧 info@spaceexpo-sz.com</a>
         <a>📍 深圳会展中心（福田）</a>
       </div>
