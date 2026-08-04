@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>网站升级中，敬请期待 | 商业航天生态合作大会暨2026深圳国际商业航天展览会</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#060f25">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(ellipse at 50% -20%, #112855 0%, #0a1b3f 45%, #060f25 100%);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 星空背景 */
+  .stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+
+  /* 火箭 */
+  .rocket-wrap { position: relative; width: 120px; height: 150px; margin: 0 auto 28px; z-index: 1; }
+  .rocket {
+    animation: float 3.5s ease-in-out infinite;
+    transform-origin: center bottom;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .flame { animation: flicker 0.5s ease-in-out infinite; transform-origin: center top; }
+  @keyframes flicker {
+    0%, 100% { transform: scaleY(1); opacity: 0.9; }
+    50% { transform: scaleY(1.25); opacity: 1; }
+  }
+
+  .content { position: relative; z-index: 1; padding: 0 24px; max-width: 640px; }
+
+  .badge {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #e2b84e;
+    border: 1px solid rgba(226, 184, 78, 0.5);
+    border-radius: 999px;
+    padding: 6px 18px;
+    margin-bottom: 26px;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 800;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, #fff 20%, #e2b84e 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  .sub {
+    font-size: clamp(20px, 4vw, 28px);
+    letter-spacing: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 26px;
+    font-weight: 600;
+  }
+  .desc {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 12px;
+  }
+  .loading {
+    margin: 30px auto 0;
+    width: 220px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .loading-bar {
+    width: 40%;
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #0d3f8a, #e2b84e);
+    animation: load 2.2s ease-in-out infinite;
+  }
+  @keyframes load {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(320%); }
+  }
+
+  .contact {
+    margin-top: 42px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 2;
+  }
+  .contact a { color: #e2b84e; text-decoration: none; }
+  .contact a:hover { text-decoration: underline; }
+  .footer {
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="content">
+  <div class="rocket-wrap">
+    <svg class="rocket" width="110" height="140" viewBox="0 0 110 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- 舱身 -->
+      <path d="M55 2 C30 30 24 55 24 75 L24 95 C24 105 32 112 42 112 L68 112 C78 112 86 105 86 95 L86 75 C86 55 80 30 55 2Z" fill="#eef0f4"/>
+      <!-- 舷窗 -->
+      <circle cx="55" cy="52" r="13" fill="#0d3f8a" stroke="#daa940" stroke-width="3"/>
+      <circle cx="51" cy="48" r="4" fill="#fff" opacity="0.35"/>
+      <!-- 舱身条纹 -->
+      <rect x="24" y="72" width="62" height="10" fill="#0a1b3f"/>
+      <rect x="24" y="88" width="62" height="7" fill="#e2b84e" opacity="0.85"/>
+      <!-- 左翼 -->
+      <path d="M24 78 L8 108 L26 106 L30 92Z" fill="#112855"/>
+      <!-- 右翼 -->
+      <path d="M86 78 L102 108 L84 106 L80 92Z" fill="#112855"/>
+      <!-- 尾翼 -->
+      <path d="M43 112 L40 126 L55 121 L70 126 L67 112Z" fill="#0d3f8a"/>
+      <!-- 火焰 -->
+      <g class="flame">
+        <path d="M44 125 C42 136 48 141 55 141 C62 141 68 136 66 125 C62 131 58 132 55 132 C52 132 48 131 44 125Z" fill="#ff9d2e"/>
+        <path d="M48 127 C47 133 51 136 55 136 C59 136 63 133 62 127 C60 130 58 131 55 131 C52 131 50 130 48 127Z" fill="#ffd27d"/>
+      </g>
+    </svg>
+  </div>
+
+  <span class="badge">SpaceBizExpo · 2026 深圳</span>
+  <h1>网站升级中</h1>
+  <div class="sub">敬 请 期 待</div>
+  <p class="desc">我们的网站正在升级优化中，全新的参观体验即将上线。<br>感谢您的耐心等待与支持，期待与您共赴太空经济盛会！</p>
+  <div class="loading"><div class="loading-bar"></div></div>
+
+  <div class="contact">
+    如有疑问请联系：<a href="tel:18927449208">189-2744-9208</a> ｜ <a href="mailto:sambluedell@gmail.com">sambluedell@gmail.com</a>
+  </div>
+  <div class="footer">© 2026 SpaceBizExpo · 商业航天生态合作大会暨2026深圳国际商业航天展览会</div>
+</div>
+
+<script>
+  // 生成星空
+  const starsEl = document.getElementById('stars');
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < 90; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2.4 + 1;
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 3) + 's';
+    s.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    fragment.appendChild(s);
+  }
+  starsEl.appendChild(fragment);
+</script>
+</body>
+</html>

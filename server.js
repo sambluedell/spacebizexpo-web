@@ -35,6 +35,25 @@ const MIME_MAP = {
   '.webm': 'video/webm',
 };
 
+// ===== 维护模式开关 =====
+// true  = 网站升级中：前台页面显示 maintenance.html（503，利于 SEO），后台/API/静态资源不受影响
+// false = 恢复正常访问
+const MAINTENANCE = true;
+
+app.use((req, res, next) => {
+  if (!MAINTENANCE || (req.method !== 'GET' && req.method !== 'HEAD')) return next();
+  const p = req.path;
+  // 放行后台管理、API、上传文件
+  if (p.startsWith('/api/') || p.startsWith('/uploads/') || p.startsWith('/admin')) return next();
+  // 放行静态资源（css/js/图片等）
+  const ext = path.extname(p).toLowerCase();
+  if (ext && ext !== '.html') return next();
+  // 页面请求 → 返回升级中页面
+  res.status(503);
+  res.setHeader('Retry-After', '86400');
+  res.sendFile(path.join(__dirname, 'maintenance.html'));
+});
+
 app.use((req, res, next) => {
   if (req.method !== 'GET') return next();
   if (req.path.startsWith('/api/') || req.path.startsWith('/uploads/')) return next();
